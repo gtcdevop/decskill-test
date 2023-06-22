@@ -36,7 +36,10 @@ Requirements:
 - The API should make by java 8 with Spring Boot + Spring JPA or Jave EE + Hibernate, PostgreSQL, GIT, log4j (or other);
 - You should provide instructions on how to run the project and how to call the routes;
 ```
-# Run
+# Run the project
+#### Before all 
+- make sure you have `docker`, `docker-compose`, `maven` and `java 8` already installed
 
-- to run the project 
-
+#### Just two steps
+- go to `devops` folder and run the following `docker-compose   -f docker-compose.yml up`
+- go to source root. where you find the `pom.xml` file, and run `mvn spring-boot:run`

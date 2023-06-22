@@ -40,8 +40,8 @@ public class OrderController  extends CommonExceptionHandler {
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createOrder(@Valid @RequestBody OrderEntity order) {
         // Get the required Entities
-        ItemEntity itemEntity = itemRepository.findById(order.getUser()).orElseThrow(() -> new NotFoundException("item not found"));
-        UserEntity userEntity = userRepository.findById(order.getItem()).orElseThrow(() -> new NotFoundException("user not found"));
+        ItemEntity itemEntity = itemRepository.findById(order.getUserId()).orElseThrow(() -> new NotFoundException("item not found"));
+        UserEntity userEntity = userRepository.findById(order.getItemId()).orElseThrow(() -> new NotFoundException("user not found"));
         // Set the remaning data
         order.setItemEntity(itemEntity);
         order.setUserEntity(userEntity);

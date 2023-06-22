@@ -30,8 +30,7 @@ public class StockEntity implements Serializable {
     private ItemEntity itemEntity;
 
     @JsonProperty("quantity")
-    @NotNull("Quantity must be integer")
-    @Range(min = 0)
+    @Range(min = 0, message = "Valor tens de ser maior ou igual a zero")
     private Integer quantity;
 
     private long item;
