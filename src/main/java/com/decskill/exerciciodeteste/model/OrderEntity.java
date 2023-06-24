@@ -6,7 +6,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -20,11 +19,9 @@ public class OrderEntity implements Serializable {
 
     public OrderEntity() {}
 
-    public OrderEntity(Long id, int quantity, Long userId, Long itemId) {
+    public OrderEntity(Long id, Long userId) {
         this.id = id;
-        this.quantity = quantity;
         this.userId = userId;
-        this.itemId = itemId;
     }
 
     @Id
@@ -35,14 +32,9 @@ public class OrderEntity implements Serializable {
     @JsonProperty("creationDate")
     private Date creationDate;
 
-    @JsonProperty("item")
-    @OneToOne(optional = true, cascade = CascadeType.REMOVE)
-    @JoinColumn(name= "items_id")
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
-    private ItemEntity itemEntity;
-
-    @JsonProperty("quantity")
-    private int quantity;
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonProperty("ordersList")
+    private List<OrderItemEntity> OrderItem;
 
     @JsonProperty("user")
     @OneToOne(optional = true, cascade = CascadeType.REMOVE)

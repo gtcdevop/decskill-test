@@ -39,11 +39,9 @@ public class OrderController  extends CommonExceptionHandler {
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createOrder(@Valid @RequestBody OrderEntity order) {
-        // Get the required Entities
-        ItemEntity itemEntity = itemRepository.findById(order.getUserId()).orElseThrow(() -> new NotFoundException("item not found"));
-        UserEntity userEntity = userRepository.findById(order.getItemId()).orElseThrow(() -> new NotFoundException("user not found"));
+
+        UserEntity userEntity = userRepository.findById(order.getUserId()).orElseThrow(() -> new NotFoundException("User not found"));
         // Set the remaning data
-        order.setItemEntity(itemEntity);
         order.setUserEntity(userEntity);
         order.setCreationDate(new Date());
         orderRepository.save(order);
@@ -60,6 +58,9 @@ public class OrderController  extends CommonExceptionHandler {
     public ResponseEntity<?> updateOrderById(@PathVariable Long id, @RequestBody OrderEntity order) {
         OrderEntity existingOrder = orderRepository.findById(id).orElseThrow(() -> new NotFoundException("order not found to update"));
         orderService.updateOrder(existingOrder, order);
+        // check stock
+        // check each item on the order list before and after the update..
+        // update stock
         orderRepository.save(existingOrder);
         return ResponseEntity.ok(existingOrder);
     }

@@ -5,7 +5,6 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,8 +24,8 @@ public class StockEntity implements Serializable {
     @JsonProperty("creationDate")
     private Date creationDate;
 
-    @Column(nullable = false)
     @JsonProperty("item")
+    @OneToOne
     private ItemEntity itemEntity;
 
     @JsonProperty("quantity")
