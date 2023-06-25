@@ -10,11 +10,12 @@ import java.io.Serializable;
 @Entity
 @Table(name = "orderitem")
 @Data
-public class OrderItemEntity implements Serializable  {
+public class OrderItemEntity implements Serializable {
 
     private static final long serialVersionUID = 14L;
 
-    public OrderItemEntity() {}
+    public OrderItemEntity() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +23,7 @@ public class OrderItemEntity implements Serializable  {
     private Long id;
 
     @OneToOne(optional = true, cascade = CascadeType.REMOVE)
-    @JoinColumn(name="items_id")
+    @JoinColumn(name = "items_id")
     private ItemEntity itemEntity;
 
     @JsonProperty("quantity")
@@ -34,7 +35,7 @@ public class OrderItemEntity implements Serializable  {
     private boolean fullFilled;
 
     @ManyToOne
-    @JoinColumn(name= "orders_id")
+    @JoinColumn(name = "orders_id")
     private OrderEntity orders;
 
 }

@@ -34,9 +34,6 @@ public class OrderController  extends CommonExceptionHandler {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private ItemRepository itemRepository;
-
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createOrder(@Valid @RequestBody OrderEntity order) {
 
