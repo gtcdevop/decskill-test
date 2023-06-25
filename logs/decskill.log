@@ -8,3 +8,7 @@
 2023-06-25 16:41:10,518 INFO [StartupInfoLogger.java:61] #=# Started ExercicioDeTesteApplication in 5.444 seconds (JVM running for 6.611)
 2023-06-25 16:41:14,929 INFO [StockMovementController.java:43] #=# Item added into stock
 2023-06-25 16:41:15,910 INFO [StockMovementController.java:43] #=# Item added into stock
+2023-06-25 16:43:51,351 INFO [StartupInfoLogger.java:55] #=# Starting ExercicioDeTesteApplicationTests using Java 20.0.1 on null with PID 12989 (started by gtc in /home/gtc/pro/decSkill/test-exercise)
+2023-06-25 16:43:51,353 DEBUG [StartupInfoLogger.java:56] #=# Running with Spring Boot v2.7.6, Spring v5.3.24
+2023-06-25 16:43:51,354 INFO [SpringApplication.java:631] #=# No active profile set, falling back to 1 default profile: "default"
+2023-06-25 16:43:56,795 INFO [StartupInfoLogger.java:61] #=# Started ExercicioDeTesteApplicationTests in 5.864 seconds (JVM running for 6.921)

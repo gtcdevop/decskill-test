@@ -42,4 +42,4 @@ Requirements:
 
 #### Just two steps
 - go to `devops` folder and run the following `docker-compose   -f docker-compose.yml up`
-- go to source root. where you find the `pom.xml` file, and run `mvn spring-boot:run`
+- go to source root. where you find the `pom.xml` file, run `mvn clean install`,  and then run `mvn spring-boot:run`
