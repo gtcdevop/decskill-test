@@ -1,0 +1,10 @@
+2023-06-25 16:39:40,380 INFO [main] c.d.e.ExercicioDeTesteApplication [StartupInfoLogger.java:55] Starting ExercicioDeTesteApplication using Java 1.8.0_302 on null with PID 12135 (/home/gtc/pro/decSkill/test-exercise/target/classes started by gtc in /home/gtc/pro/decSkill/test-exercise)
+2023-06-25 16:39:40,383 INFO [main] c.d.e.ExercicioDeTesteApplication [SpringApplication.java:631] No active profile set, falling back to 1 default profile: "default"
+2023-06-25 16:39:46,027 INFO [main] c.d.e.ExercicioDeTesteApplication [StartupInfoLogger.java:61] Started ExercicioDeTesteApplication in 6.386 seconds (JVM running for 7.351)
+2023-06-25 16:39:52,329 INFO [http-nio-8080-exec-2] c.d.e.c.StockMovementController [StockMovementController.java:43] Item added into stock
+2023-06-25 16:41:05,745 INFO [StartupInfoLogger.java:55] #=# Starting ExercicioDeTesteApplication using Java 1.8.0_302 on null with PID 12327 (/home/gtc/pro/decSkill/test-exercise/target/classes started by gtc in /home/gtc/pro/decSkill/test-exercise)
+2023-06-25 16:41:05,747 DEBUG [StartupInfoLogger.java:56] #=# Running with Spring Boot v2.7.6, Spring v5.3.24
+2023-06-25 16:41:05,748 INFO [SpringApplication.java:631] #=# No active profile set, falling back to 1 default profile: "default"
+2023-06-25 16:41:10,518 INFO [StartupInfoLogger.java:61] #=# Started ExercicioDeTesteApplication in 5.444 seconds (JVM running for 6.611)
+2023-06-25 16:41:14,929 INFO [StockMovementController.java:43] #=# Item added into stock
+2023-06-25 16:41:15,910 INFO [StockMovementController.java:43] #=# Item added into stock

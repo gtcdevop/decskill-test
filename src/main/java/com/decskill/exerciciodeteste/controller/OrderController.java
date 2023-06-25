@@ -2,6 +2,7 @@ package com.decskill.exerciciodeteste.controller;
 
 import com.decskill.exerciciodeteste.controller.exceptionHandler.CommonExceptionHandler;
 import com.decskill.exerciciodeteste.exceptions.NotFoundException;
+import com.decskill.exerciciodeteste.exceptions.NotImplementedException;
 import com.decskill.exerciciodeteste.model.ItemEntity;
 import com.decskill.exerciciodeteste.model.OrderEntity;
 import com.decskill.exerciciodeteste.model.UserEntity;
@@ -52,13 +53,7 @@ public class OrderController  extends CommonExceptionHandler {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateOrderById(@PathVariable Long id, @RequestBody OrderEntity order) {
-        OrderEntity existingOrder = orderRepository.findById(id).orElseThrow(() -> new NotFoundException("order not found to update"));
-        orderService.updateOrder(existingOrder, order);
-        // check stock
-        // check each item on the order list before and after the update..
-        // update stock
-        orderRepository.save(existingOrder);
-        return ResponseEntity.ok(existingOrder);
+        throw new NotImplementedException("Update order not implemented");
     }
 
     @DeleteMapping("/{id}")

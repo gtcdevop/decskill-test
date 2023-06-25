@@ -19,4 +19,12 @@ public class UserService {
             existingUser.setPassword(newUser.getPassword());
         }
     }
+
+    private void sendEmailToUser(String email, String body) {
+
+    }
+
+    public void sendEmailToUserNotifyCompleteOrder(String email, int orderId) {
+
+    }
 }

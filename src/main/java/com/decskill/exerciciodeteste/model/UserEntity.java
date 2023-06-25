@@ -1,5 +1,6 @@
 package com.decskill.exerciciodeteste.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.validator.internal.metadata.facets.Validatable;
@@ -40,6 +41,7 @@ public class UserEntity implements Serializable {
     private String email;
 
     @Column
+    @JsonIgnore
     private boolean adminAccess;
 
 }
