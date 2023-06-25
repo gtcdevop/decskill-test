@@ -1,11 +1,15 @@
 package com.decskill.exerciciodeteste.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.Nulls;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -19,8 +23,8 @@ public class OrderEntity implements Serializable {
 
     public OrderEntity() {}
 
-    public OrderEntity(Long id, Long userId) {
-        this.id = id;
+    public OrderEntity(List<OrderItemEntity> orderItem, Long userId) {
+        OrderItem = orderItem;
         this.userId = userId;
     }
 
@@ -33,7 +37,8 @@ public class OrderEntity implements Serializable {
     private Date creationDate;
 
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonProperty("ordersList")
+    @JsonProperty("itemsList")
+    @NotNull(message = "Adicione os items na lista usando id e quantity")
     private List<OrderItemEntity> OrderItem;
 
     @JsonProperty("user")
@@ -42,10 +47,12 @@ public class OrderEntity implements Serializable {
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     private UserEntity userEntity;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    @JsonProperty("order_fullfilled")
+    @Transient
+    private boolean fullfilled;
+
     @JsonProperty("userId")
     private Long userId;
-
-    @JsonProperty("itemId")
-    private Long itemId;
 
 }

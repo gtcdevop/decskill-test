@@ -31,17 +31,16 @@ public class OrderController  extends CommonExceptionHandler {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
-    private UserRepository userRepository;
-
+    /**
+     * Create an Order and try to fullfill the items by using the items present on Stock
+     * @param order
+     * @return ResponseEntity
+     */
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createOrder(@Valid @RequestBody OrderEntity order) {
 
-        UserEntity userEntity = userRepository.findById(order.getUserId()).orElseThrow(() -> new NotFoundException("User not found"));
-        // Set the remaning data
-        order.setUserEntity(userEntity);
-        order.setCreationDate(new Date());
-        orderRepository.save(order);
+        orderService.createAnOrderAndTryToFullFillItemsUsingItemsOnStock(order);
+
         return ResponseEntity.ok(order);
     }
 
