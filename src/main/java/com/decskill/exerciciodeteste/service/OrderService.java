@@ -50,6 +50,7 @@ public class OrderService {
             return isItemFullfilled;
         }).reduce(true, (a, b) -> a && b);
         if(isOrderFullFilled) { // send email to user
+            log.info("Order id: "+ newOrder.getId() + " was fullfilled");
             this.notifyUserWhenOrderIsFullFilled(newOrder);
         }
 
@@ -75,8 +76,5 @@ public class OrderService {
         this.emailService.sendEmail(emailsList, subject, body);
     }
 
-    public OrderEntity updateExistingOrder(OrderEntity existingOrder, OrderEntity newOrder) {
-        return new OrderEntity();
-    }
 
 }
